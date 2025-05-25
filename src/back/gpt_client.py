@@ -12,7 +12,7 @@ client = AzureOpenAI(
     api_version="2024-10-21"
 )
 
-def get_aita_classification(text: str) -> dict:
+def get_classification(text: str) -> dict:
     try:
         response = client.chat.completions.create(
             model=DEPLOYMENT_NAME,
@@ -44,7 +44,7 @@ def get_aita_classification(text: str) -> dict:
                 "text": text
             }
         except json.JSONDecodeError:
-            print("⚠️ Error al parsear JSON desde Azure OpenAI:", content)
+            print("⚠️ Error al parsear JSON desde OpenAI:", content)
             return {
                 "error": "Respuesta malformada",
                 "raw_output": content,
@@ -53,6 +53,6 @@ def get_aita_classification(text: str) -> dict:
 
     except Exception as e:
         return {
-            "error": f"Error en la solicitud a Azure OpenAI: {str(e)}",
+            "error": f"Error en la solicitud a OpenAI: {str(e)}",
             "text": text
         }

@@ -1,7 +1,12 @@
 <script lang="ts">
   import ModelSelector from './ModelSelector.svelte';
   import TextInput from './TextInput.svelte';
-  let models = ['XMLBERT', 'HuggingFace', 'Classic ML', 'gpt-4o'];
+  let models = [
+    { label: 'GPT-4o', value: 'gpt-4o' },
+    { label: 'Llama 3.1', value: 'llama-3.1' },
+    { label: 'Logistic Regression', value: 'logistic_regression' },
+    { label: 'Naive Bayes', value: 'naive_bayes' }
+  ];
   let selectedModel = models[0];
   let inputText = '';
 let predictionResult: any = null;
@@ -12,8 +17,10 @@ let predictionResult: any = null;
     loading = true;
     predictionResult = null;
 
+    console.log(`Predicting with model: ${selectedModel.label}`);
+
     try {
-      const res = await fetch(`http://localhost:8000/predict/${selectedModel}`, {
+      const res = await fetch(`http://localhost:8000/predict/${selectedModel.value}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ text: inputText }),
@@ -37,7 +44,13 @@ let predictionResult: any = null;
 <div class="container">
   <h1>r/AITA Model Prediction</h1>
 
-  <ModelSelector {models} {selectedModel} onSelect={(m) => selectedModel = m} />
+  <ModelSelector
+    models={models.map(model => model.label)}
+    selectedModel={selectedModel.label}
+    onSelect={(model) => {
+      selectedModel = models.find(m => m.label === model) ?? models[0];
+    }}
+  />
 
   <TextInput bind:value={inputText} placeholder="Paste AITA post here..." />
 
@@ -48,12 +61,8 @@ let predictionResult: any = null;
   {#if predictionResult}
     <div class="result">
       <h2>Prediction:</h2>
-      {#if selectedModel === 'gpt-4o' || selectedModel === 'naive_bayes' || selectedModel === 'logistic_regression'}
-        <p><strong>Etiqueta AITA:</strong> {predictionResult.etiqueta_aita}</p>
-        <p><strong>Razonamiento:</strong> {predictionResult.razonamiento}</p>
-      {:else}
-        <p>{predictionResult}</p>
-      {/if}
+      <p><strong>Etiqueta AITA:</strong> {predictionResult.etiqueta_aita}</p>
+      <p><strong>Razonamiento:</strong> {predictionResult.razonamiento}</p>
     </div>
   {/if}
 </div>
