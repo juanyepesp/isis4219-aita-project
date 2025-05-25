@@ -6,7 +6,7 @@ import tensorflow as tf
 from tensorflow.keras.models import load_model
 
 MODEL_PATH = 'deep_learning/best_gru_model.h5'
-VECTORIZER_PATH = 'deep_learning/vectorizer.pkl'
+VECTORIZER_PATH = 'deep_learning/tfidf_vectorizer.pkl'
 ENCODER_PATH = 'deep_learning/label_encoder.pkl'
 
 
@@ -34,4 +34,10 @@ def get_prediction(text_input):
     sequence = create_sequence_from_text(text_input, vectorizer, SEQUENCE_LENGTH)
     prediction = model.predict(sequence, verbose=0)
     label_index = np.argmax(prediction)
-    return label_encoder.inverse_transform([label_index])[0]
+    predicted_label = label_encoder.inverse_transform([label_index])[0]
+    return {
+        "etiqueta_aita": predicted_label,
+        "razonamiento": "Predicción generada por red neuronal GRU basada en texto vectorizado.",
+        "text": text_input
+    }
+

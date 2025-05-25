@@ -32,10 +32,24 @@ def predict_with_naive_bayes(text: str) -> dict:
     }
 
 def predict_with_svm(text: str) -> dict:
-    X = vectorizer.transform([text])
+    """
+    Predice la etiqueta y las probabilidades (si están disponibles) usando el modelo SVM.
+    """
+    X = svm_specific_vectorizer.transform([text])
     prediction = svm_model.predict(X)[0]
-    return {
+    prob_dict = None
+    try:
+        probabilities = svm_model.predict_proba(X)[0]
+        classes = svm_model.classes_
+        prob_dict = {classes[i]: float(probabilities[i]) for i in range(len(classes))}
+    except AttributeError:
+        pass
+
+    result = {
         "etiqueta_aita": prediction,
         "razonamiento": "Predicción generada por SVM basada en texto vectorizado.",
         "text": text
     }
+    if prob_dict:
+        result["probabilidades"] = prob_dict
+    return result
