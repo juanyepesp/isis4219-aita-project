@@ -14,22 +14,6 @@
       {model}
     </button>
   {/each}
-
-  <button
-    class="model-button"
-    class:selected={"naive_bayes" === selectedModel}
-    on:click={() => onSelect("naive_bayes")}
-  >
-    naive_bayes
-  </button>
-
-  <button
-    class="model-button"
-    class:selected={"logistic_regression" === selectedModel}
-    on:click={() => onSelect("logistic_regression")}
-  >
-    logistic_regression
-  </button>
 </div>
 
 <style>
