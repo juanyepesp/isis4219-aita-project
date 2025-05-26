@@ -6,6 +6,7 @@ import os
 import gpt_client
 import llama_client
 from gru import get_prediction as predict_with_gru
+import bert
 from ml_classic import *
 import uvicorn
 
@@ -42,6 +43,8 @@ async def predict_text(model_name: str, payload: TextPayload):
         result = predict_with_svm(text)
     elif model_name == "gru":
         result = predict_with_gru(text)
+    elif model_name in bert.models:
+        result = bert.get_prediction(text, model_name)
     else:
         result = "Unknown model"
 
