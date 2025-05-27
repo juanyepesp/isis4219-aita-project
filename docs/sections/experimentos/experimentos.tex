@@ -1,1 +1,113 @@
-\section{Experimentos}
+\section{Experimentos}\label{sec:experimentos}
+
+Todo el código relevante y que se explica en esta sección, se encuentra en el siguiente repositorio de GitHub\footnote{https://github.com/juanyepesp/isis4219-aita-project}.
+
+La estructura del repositorio es la siguiente:
+
+\begin{verbatim}
+|- docs
+|- src
+    |- back
+    |- front
+    |- notebooks
+\end{verbatim}
+
+En el directorio \verb|docs| se encuentra el código fuente de \LaTeX   \ utilizado para este documento. En el directorio \verb|src| está todo el código fuente, o la columna vertebral del proyecto. Dentro de \verb|back| está la lógica que la aplicacion, utilizando todos los modelos entrenados, para hacer las predicciones, dentro del \verb|front| está todo el código para la página web y finalmente dentro de \verb|notebooks| están los cuadernos de Jupyter que se utilizaron para entrenar los modelos, encontrar métricas, hacer fine-tuning, etc. De igual forma, en este último directorio se encuentra el análisis exploratorio de los datos, explicado anteriormente. De igual forma, todos los modelos se prueban con datasets equivalentes. En cuanto a la división de los datos, se asignó un 80\% al conjunto de entrenamiento y un 20\% al conjunto de prueba, reservando además un 20\% del conjunto de entrenamiento como validación interna.
+
+\subsection{Modelos clásicos}
+
+Se evaluaron tres modelos clásicos de aprendizaje automático con el objetivo de establecer líneas base para la tarea planteada. Los modelos implementados fueron: Regresión Logística, Naive Bayes y Máquinas de Vectores de Soporte (SVM). Todos los modelos fueron entrenados y evaluados bajo la misma configuración experimental para garantizar una comparación justa.
+
+\subsubsection{Configuración}
+La configuración de entrenamiento fue homogénea para los tres modelos, utilizando una división fija del conjunto de datos entre entrenamiento y prueba. Se empleó una vectorización básica de las entradas (por ejemplo, TF-IDF si se trata de texto), y no se aplicaron técnicas avanzadas de ajuste de hiperparámetros, a excepción de la SVM la cual por su comportamiento se requeria iteraciones adicionales mostradas en la siguiente sección.
+
+Los modelos se implementaron en Python utilizando bibliotecas estándar como scikit-learn, y se evaluaron utilizando métricas clásicas de clasificación.
+
+\subsubsection{Descripción de los modelos}
+
+\begin{itemize}
+    \item Regresión Logística (Logistic Regression): Se empleó como un clasificador lineal base por su simplicidad y capacidad de interpretabilidad. Utiliza la función softmax para modelar la probabilidad de pertenencia a una clase.
+    \item Naive Bayes: Modelo probabilístico basado en el teorema de Bayes con una fuerte (e irrealista) suposición de independencia entre características. 
+    \item SVM (Support Vector Machine): Se utilizó con un kernel RBF (o lineal, si fue el caso), dado que SVM es particularmente eficaz en espacios de alta dimensión. Sin embargo, su rendimiento puede depender fuertemente del ajuste de hiperparámetros.
+\end{itemize}
+
+\paragraph{Implementación SVM}
+Como se menciono anteriormente,se realizó una implementación exhaustiva de máquinas de vectores de soporte como modelo principal de aprendizaje automático clásico, evaluando diferentes configuraciones de kernels y parámetros para establecer una línea de referencia sólida.
+
+\begin{itemize}
+    \item Vectorización especial TF-IDF con eliminación de palabras vacías en inglés, máximo de 20,000 características más relevantes, n-gramas de 1-2 palabras, frecuencia mínima de 2 documentos y máxima de 95\%
+    \item Aplicación de submuestreo (downsampling) de la clase mayoritaria NTA para equilibrar el dataset
+    \item Validación cruzada de 5 pliegues para evaluar robustez del modelo
+\end{itemize}
+
+Se evaluaron tres tipos de kernels fundamentales. Dentro de ellos el Kernel Lineal para establecer línea base con separación lineal, Kernel RBF con parámetro gamma='scale' para capturar patrones no lineales y finalmente Kernel Polinomial para evaluar relaciones polinomiales entre características.
+
+\subsection{Aprendizaje profundo}
+Para abordar las limitaciones de los modelos clásicos, especialmente en la comprensión de matices semánticos y el manejo del desbalance de clases, se exploraron arquitecturas de aprendizaje profundo basadas en Transformers, específicamente modelos de la familia BERT (Bidirectional Encoder Representations from Transformers). Estos modelos son preentrenados en grandes corpus de texto y han demostrado un rendimiento sobresaliente en una amplia gama de tareas de Procesamiento del Lenguaje Natural.
+
+\subsubsection{Modelos tipo BERT}
+Se diseñaron dos experimentos principales para evaluar diferentes estrategias de aplicación de modelos BERT a la tarea de clasificación de veredictos morales:
+
+\textbf{Configuración Experimental Común:}
+\\
+Se utilizó el tokenizador específico de cada modelo BERT, como \texttt{AutoTokenizer} de Hugging Face. La longitud máxima de secuencia se fijó en \texttt{MAX\_SEQ\_LEN = 512} tokens, aplicando truncamiento o relleno según fuera necesario. Para el procesamiento por lotes, se empleó un tamaño de lote definido por \texttt{BATCH\_SIZE = 16}.
+
+
+\textbf{Experimento 1: BERT base congelado (Extracción de Características)}
+Se evaluó el rendimiento de un modelo \texttt{bert-base-uncased} preentrenado sin realizar un ajuste fino de sus capas internas. Específicamente, los pesos del cuerpo principal del modelo BERT (capas de atención y embeddings) se mantuvieron congelados. Únicamente se entrenó una nueva capa de clasificación lineal añadida sobre la representación del token \texttt{[CLS]} (o la salida del \textit{pooler}). El objetivo era establecer una línea base del poder representacional de los embeddings preentrenados de BERT para esta tarea.
+
+\textbf{Experimento 2: Fine-tuning completo de modelos BERT}
+Se realizó un ajuste fino (\textit{fine-tuning}) completo de tres variantes de modelos BERT: \texttt{bert-base-uncased}, un modelo BERT base estándar no sensible a mayúsculas; \texttt{roberta-base}, una versión optimizada de BERT que modifica aspectos clave del preentrenamiento bajo el enfoque denominado \textit{Robustly optimized BERT approach}; y \texttt{xlm-roberta-base}, un modelo multilingüe basado en RoBERTa, incluido con el objetivo de evaluar si su entrenamiento en múltiples idiomas podría aportar alguna capacidad de generalización útil, a pesar de que la tarea es primordialmente en inglés. En esta configuración, todos los pesos de los modelos, incluyendo las capas de atención y los embeddings, fueron actualizados durante el entrenamiento para adaptarlos específicamente al conjunto de datos y a la tarea de clasificación de veredictos.
+
+
+\subsubsection{Redes Neuronales Recurrentes (GRU)}
+Se implementó una arquitectura de red neuronal recurrente basada en unidades GRU (Gated Recurrent Unit) utilizando TensorFlow/Keras para evaluar la efectividad de enfoques secuenciales alternativos.
+
+\textbf{Configuración Experimental}
+
+La implementación de GRU utilizó una configuración experimental diseñada para aprovechar las características TF-IDF como entrada secuencial. 
+
+Se utilizaron las 200 características TF-IDF más relevantes, seleccionadas por varianza, las cuales fueron transformadas en secuencias de longitud fija para la entrada del modelo. El procesamiento se realizó por lotes con un tamaño de 64 muestras, lo que permitió optimizar tanto el uso de memoria como la velocidad de convergencia del entrenamiento. Para la optimización, se empleó el algoritmo Adam con una tasa de aprendizaje inicial de 0.001. El entrenamiento se llevó a cabo durante un máximo de 20 épocas, implementando una estrategia de early stopping basada en la pérdida de validación, con una paciencia de 5 épocas. Para asegurar un aprendizaje equilibrado, se utilizó el mismo conjunto de datos balanceado mediante submuestreo que se aplicó previamente para los modelos presentados.
+
+\paragraph{Arquitectura del Modelo}
+La red neuronal implementada fue una arquitectura secuencial avanzada compuesta por varias capas especializadas. En primer lugar, se utilizó una capa GRU bidireccional con 256 unidades, configurada con "
+return\_sequences=True, un dropout del 0.3, dropout recurrente de 0.2 y regularización combinada L1-L2 para controlar el sobreajuste. Posteriormente, se incorporó una capa GRU unidireccional con 128 unidades, esta vez con return\_sequences=False y la misma estrategia de regularización. La red continuó con dos capas densas de 256 y 128 neuronas respectivamente. Entre estas capas densas se añadieron capas dropout con tasas progresivas de 0.4, 0.4 y 0.3 para mejorar la generalización del modelo. Finalmente, la salida se generó a través de una capa softmax, adecuada para la tarea de clasificación multiclase.
+
+\paragraph{Estrategias de Regularización}
+Se aplicó dropout en las capas recurrentes y densas con tasas variables. La regularización L1-L2 se utilizó en los kernels de todas las capas GRU y densas. Se incorporó normalización por lotes entre las capas principales. El entrenamiento se controló mediante early stopping, monitoreando la pérdida de validación con una paciencia de 5 épocas. También se implementó una reducción de la tasa de aprendizaje con un factor de 0.5, paciencia de 3 épocas y una tasa mínima de 1e-6. Finalmente, se usó model checkpoint para guardar automáticamente el mejor modelo según la exactitud en la validación.
+
+\subsection{Grandes modelos de lenguaje}
+
+\subsubsection{Llama 3.1 8B Instruct}
+Se implementó una evaluación directa del modelo Llama 3.1 8B Instruct utilizando Hugging Face Transformers, aprovechando las capacidades de razonamiento preentrenadas sin entrenamiento adicional específico.
+
+\textbf{Configuración del Modelo}
+
+La implementación utilizó especificaciones técnicas optimizadas. Se empleó el modelo \texttt{meta-llama/Meta-Llama-3.1-8B-Instruct} de Hugging Face. La precisión utilizada fue float16 para optimizar el uso de memoria GPU. La distribución del modelo se realizó mediante device mapping automático, permitiendo una asignación eficiente en el hardware disponible. Además, se configuró \texttt{trust\_remote\_code=True} para permitir la ejecución de código personalizado del modelo.
+
+\textbf{Diseño del Prompt} 
+
+Se desarrolló un prompt estructurado y determinístico. Las instrucciones fueron explícitas, con una definición clara de cada categoría de veredicto. Se estableció una restricción de formato, limitando la salida a cinco etiquetas válidas: YTA, NTA, NAH, ESH e INFO. Asimismo, se utilizó un template consistente para mantener una estructura uniforme y minimizar la variabilidad en las respuestas.
+
+\textbf{Parámetros de Generación} 
+
+La temperatura se fijó en 0.1 para minimizar la aleatoriedad, y la longitud máxima se limitó a 10 tokens nuevos para respuestas concisas. Se activó el muestreo (\texttt{do\_sample=True}) con baja temperatura para asegurar determinismo, y se especificó \texttt{pad\_token\_id=tokenizer.eos\_token\_id} para el manejo correcto de los tokens de relleno.
+
+\textbf{Metodología de Evaluación} 
+
+El procesamiento se realizó en lotes de 100 muestras para optimizar el rendimiento. La extracción de resultados se llevó a cabo con un parser robusto, que incluye un mecanismo de respaldo que asigna la etiqueta "NTA" en caso de fallo. Finalmente, se monitoreó el progreso mediante indicadores cada 1000 muestras procesadas.
+
+
+\subsubsection{GPT-4o mini}
+
+Se diseñaron dos experimentos complementarios utilizando la API de Azure OpenAI. En primer lugar, se llevó a cabo una evaluación general del modelo, aplicando GPT de OpenAI, específicamente \texttt{gpt-4o-mini} desplegado en Azure, sobre la totalidad del dataset construido, que consta de aproximadamente 30,000 publicaciones. 
+
+\textbf{Prueba Inicial}
+
+Muy parecido al Llama-3.1b, la primera prueba del experimento consistió en aplicar el modelo \texttt{gpt-4o-mini} (desplegado en Azure OpenAI) sobre el conjunto completo de publicaciones procesadas. Se utilizó un \texttt{prompt} de sistema diseñado para instruir al modelo a actuar como clasificador de veredictos. La temperatura de generación se fijó inicialmente en 0.8 para esta evaluación. Durante la ejecución del modelo, se detectaron múltiples entradas que generaban errores por restricciones asociadas a la cuenta educativa utilizada (filtros de moderación del servicio). Estas entradas fueron registradas y almacenadas por separado en un nuevo dataset con etiquetas \texttt{ERROR}, lo cual permitió continuar la evaluación del modelo sobre las muestras válidas sin comprometer la integridad de los resultados.
+
+\textbf{Análisis del impacto de la temperatura}
+
+Con el fin de analizar el efecto del parámetro de temperatura en el rendimiento del modelo \texttt{gpt-4o-mini}, se diseñó un segundo experimento a partir de un subconjunto del conjunto de datos original. Se seleccionó aleatoriamente un 35\% del dataset inicial y se aplicó una segunda limpieza para remover aquellas entradas que habían generado errores en la primera fase, típicamente debido a restricciones de moderación impuestas por la cuenta educativa de Azure.
+
+El nuevo conjunto reducido y depurado fue utilizado para realizar inferencias con cuatro configuraciones distintas de temperatura: \texttt{0.0}, \texttt{0.4}, \texttt{0.8} y \texttt{1.0}. El propósito de este experimento fue evaluar cómo varía la precisión del modelo en función del nivel de aleatoriedad introducido en las respuestas generadas, donde el contexto puede ser interpretado de múltiples formas. 

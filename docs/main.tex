@@ -3,7 +3,16 @@
 \usepackage{graphicx}
 \usepackage{amsmath}
 \usepackage{url}
+\usepackage{booktabs}
 \usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{pdflscape}
+\usepackage{listings}
+\usepackage{titlesec}
+\setlength{\parskip}{0.5em}
+\setlength{\parindent}{0pt}
+
 
 \title{Dinámicas Sociales y Moralidad Colectiva en Reddit: Un Estudio del Subreddit r/AmITheA**hole utilizando técnicas de Machine Learning}
 
@@ -29,20 +38,62 @@
 \maketitle
 
 \begin{abstract}
-    % TODO
+    Este trabajo presenta un estudio comparativo de técnicas de aprendizaje automático para la clasificación automática de juicios morales colectivos en el subreddit r/AmITheA**hole (AITA). La comunidad AITA constituye un laboratorio natural donde usuarios solicitan veredictos éticos sobre situaciones personales, generando un dataset único de 30,830 publicaciones con etiquetas morales (YTA, NTA, ESH, NAH, INFO) extraídas de comentarios comunitarios. Se evaluaron sistemáticamente modelos clásicos (SVM, regresión logística, Naive Bayes), arquitecturas de aprendizaje profundo (GRU, BERT, RoBERTa) y grandes modelos de lenguaje (LLaMA 3.1, GPT-4o) en esta tarea de clasificación multiclase con severo desbalance. Los resultados demuestran que los modelos transformer con fine-tuning (BERT, RoBERTa) alcanzan el mejor rendimiento general con accuracy de hasta 74\% y F1-score macro de 0.26, superando significativamente a enfoques clásicos y LLMs sin entrenamiento específico. Sin embargo, todos los modelos enfrentan limitaciones críticas en la detección de clases minoritarias (ESH, NAH, INFO), obteniendo F1-scores nulos. El análisis exploratorio revela patrones temáticos dominantes relacionados con conflictos familiares y de pareja, mientras que experimentos de temperatura en LLMs sugieren que configuraciones deterministas mejoran la consistencia clasificatoria. Este estudio contribuye con una evaluación comprehensiva de paradigmas de IA aplicados al razonamiento moral automatizado, evidenciando tanto el potencial como las limitaciones actuales para modelar juicios éticos colectivos en entornos digitales.
 \end{abstract}
 
 \begin{IEEEkeywords}
-Palabras clave; separadas; por punto y coma. %TODO
+Moralidad colectiva; Reddit; procesamiento de lenguaje natural; aprendizaje automático; veredictos éticos; clasificación multiclase.
 \end{IEEEkeywords}
 
+% Introducción: Justifique el problema abordado, su relevancia y contexto.
 \input{sections/introduccion/introduccion}
+
+% Trabajos Relacionados (Related Work): Revise literatura y proyectos previos similares, destacando enfoques, resultados y limitaciones.
 \input{sections/estado-del-arte/estado-del-arte}
+
+% Metodología: Describa detalladamente el enfoque propuesto, desde la recolección y tratamiento de datos, arquitectura del modelo, entrenamiento, hasta las métricas de evaluación utilizadas.
+\input{sections/metodologia/metodologia}
+
+
+% Experimentos: Presente el diseño experimental, incluyendo escenarios, configuraciones y validaciones.
 \input{sections/experimentos/experimentos}
+
+% Resultados y Discusión: Muestre los resultados obtenidos, compárelos con otros trabajos o enfoques base, y discuta su significado.
 \input{sections/resultados/resultados}
-\input{sections/discusion-conclusion/discusion-conclusion}
+
+
+\input{sections/conclusiones/conclusiones}
 
 \bibliographystyle{IEEEtran}
 \bibliography{references}
+
+\clearpage
+\begin{landscape}
+\begin{table}[H]
+\centering
+\caption{Resumen comparativo de resultados por tipo de modelo.}
+\label{tab:comparativo_dimensiones}
+\begin{tabular}{|p{4.5cm}|p{4.5cm}|p{6cm}|p{6cm}|}
+\hline
+\textbf{Criterio} & \textbf{Modelos Clásicos} & \textbf{Aprendizaje Profundo (GRU / BERT)} & \textbf{LLMs sin Fine-Tuning (LLaMA / GPT-4o)} \\
+\hline
+\textbf{Exactitud General (\textit{Accuracy})} & 0.55--0.61 (SVM mejor) & GRU: 0.50\newline BERT: hasta 0.74 (fine-tuned) & LLaMA: 0.47\newline GPT-4o: hasta 0.62 (T=0.0) \\
+\hline
+\textbf{F1-Score Macro} & 0.21--0.25 & GRU: 0.19\newline BERT: 0.25--0.26 & LLaMA: 0.20\newline GPT-4o: hasta 0.26 (T=0.0) \\
+\hline
+\textbf{F1-Score Weighted} & 0.50--0.60 & GRU: 0.45\newline BERT: hasta 0.75 & LLaMA: 0.56\newline GPT-4o: -- \\
+\hline
+\textbf{Detección de Clases Minoritarias} & Nula (F1 = 0.00) & Nula en todos los casos (F1 = 0.00) & Parcial, aunque con bajo desempeño (F1 < 0.03) \\
+\hline
+\textbf{Balance entre NTA y YTA} & Fuerte sesgo a clase NTA & Mejorado con fine-tuning (mayor precisión en ambas) & GPT-4o logra balance aceptable; LLaMA tiene mejor recall en YTA que NTA \\
+\hline
+\textbf{Robustez ante desbalance de clases} & Muy limitada & Mejor con \texttt{WeightedFocalLoss}, pero aún insuficiente & Parcialmente robustos, sin necesidad de técnicas adicionales \\
+\hline
+\textbf{Ventajas Computacionales} & Alta eficiencia y rapidez & BERT más costoso, GRU más liviano y rápido & Requieren alta capacidad computacional y recursos externos \\
+\hline
+\end{tabular}
+\end{table}
+\end{landscape}
+
 
 \end{document}

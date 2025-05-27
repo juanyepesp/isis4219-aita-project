@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.11.20)  20 MAY 2025 13:00
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.11.20)  26 MAY 2025 22:23
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -192,18 +192,37 @@ LaTeX Info: Redefining \] on input line 2954.
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/booktabs/booktabs.sty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen175
+\lightrulewidth=\dimen176
+\cmidrulewidth=\dimen177
+\belowrulesep=\dimen178
+\belowbottomsep=\dimen179
+\aboverulesep=\dimen180
+\abovetopsep=\dimen181
+\cmidrulesep=\dimen182
+\cmidrulekern=\dimen183
+\defaultaddspace=\dimen184
+\@cmidla=\count281
+\@cmidlb=\count282
+\@aboverulesep=\dimen185
+\@belowrulesep=\dimen186
+\@thisruleclass=\count283
+\@lastruleclass=\count284
+\@thisrulewidth=\dimen187
 ) (/usr/local/texlive/2024/texmf-dist/tex/generic/babel/babel.sty
 Package: babel 2024/02/07 v24.2 The Babel package
-\babel@savecnt=\count281
-\U@D=\dimen175
+\babel@savecnt=\count285
+\U@D=\dimen188
 \l@unhyphenated=\language89
  (/usr/local/texlive/2024/texmf-dist/tex/generic/babel/txtbabel.def)
 \bbl@readstream=\read2
-\bbl@dirlevel=\count282
+\bbl@dirlevel=\count286
  (/usr/local/texlive/2024/texmf-dist/tex/generic/babel-spanish/spanish.ldf
 Language: spanish.ldf 2021/05/27 v5.0q Spanish support from the babel system
 \es@quottoks=\toks26
-\es@quotdepth=\count283
+\es@quotdepth=\count287
 Package babel Info: Making " an active character on input line 570.
 Package babel Info: Making . an active character on input line 675.
 Package babel Info: Making < an active character on input line 722.
@@ -211,86 +230,314 @@ Package babel Info: Making > an active character on input line 722.
 )) (/usr/local/texlive/2024/texmf-dist/tex/generic/babel/locale/es/babel-spanish.tex
 Package babel Info: Importing font and identification data for spanish
 (babel)             from babel-es.ini. Reported on input line 11.
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count288
+\float@exts=\toks27
+\float@box=\box55
+\@float@everytoks=\toks28
+\@floatcapt=\box56
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/pdflscape/pdflscape.sty
+Package: pdflscape 2022-10-27 v0.13 Display of landscape pages in PDF
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/pdflscape/pdflscape-nometadata.sty
+Package: pdflscape-nometadata 2022-10-28 v0.13 Display of landscape pages in PDF (HO)
+ (/usr/local/texlive/2024/texmf-dist/tex/generic/iftex/iftex.sty
+Package: iftex 2022/02/03 v1.0f TeX engine tests
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/graphics/lscape.sty
+Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
+)
+Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
+)) (/usr/local/texlive/2024/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count289
+\lst@gtempboxa=\box57
+\lst@token=\toks29
+\lst@length=\count290
+\lst@currlwidth=\dimen189
+\lst@column=\count291
+\lst@pos=\count292
+\lst@lostspace=\dimen190
+\lst@width=\dimen191
+\lst@newlines=\count293
+\lst@lineno=\count294
+\lst@maxwidth=\dimen192
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/listings/lstpatch.sty
+File: lstpatch.sty 2024/02/21 1.10 (Carsten Heinz)
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2024/02/21 1.10 (Carsten Heinz)
+\c@lstnumber=\count295
+\lst@skipnumbers=\count296
+\lst@framebox=\box58
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2024/02/21 1.10 listings configuration
+))
+Package: listings 2024/02/21 1.10 (Carsten Heinz)
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/titlesec/titlesec.sty
+Package: titlesec 2023/10/27 v2.16 Sectioning titles
+\ttl@box=\box59
+\beforetitleunit=\skip54
+\aftertitleunit=\skip55
+\ttl@plus=\dimen193
+\ttl@minus=\dimen194
+\ttl@toksa=\toks30
+\titlewidth=\dimen195
+\titlewidthlast=\dimen196
+\titlewidthfirst=\dimen197
+
+
+Package titlesec Warning: Non standard sectioning command \subparagraph
+(titlesec)                detected. Using default spacing and no format.
+
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-02-20 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count284
-\l__pdf_internal_box=\box55
-) (./main.aux
-LaTeX Info: Redefining \. on input line 8.
-LaTeX Info: Redefining \% on input line 8.
+\l__color_backend_stack_int=\count297
+\l__pdf_internal_box=\box60
 )
+No file main.aux.
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
 -- Lines per column: 56 (exact).
 (/usr/local/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count285
-\scratchdimen=\dimen176
-\scratchbox=\box56
-\nofMPsegments=\count286
-\nofMParguments=\count287
-\everyMPshowfont=\toks27
-\MPscratchCnt=\count288
-\MPscratchDim=\dimen177
-\MPnumerator=\count289
-\makeMPintoPDFobject=\count290
-\everyMPtoPDFconversion=\toks28
+\scratchcounter=\count298
+\scratchdimen=\dimen198
+\scratchbox=\box61
+\nofMPsegments=\count299
+\nofMParguments=\count300
+\everyMPshowfont=\toks31
+\MPscratchCnt=\count301
+\MPscratchDim=\dimen199
+\MPnumerator=\count302
+\makeMPintoPDFobject=\count303
+\everyMPtoPDFconversion=\toks32
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
- (/usr/local/texlive/2024/texmf-dist/tex/generic/infwarerr/infwarerr.sty
-Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
-) (/usr/local/texlive/2024/texmf-dist/tex/latex/grfext/grfext.sty
-Package: grfext 2019/12/03 v1.3 Manage graphics extensions (HO)
- (/usr/local/texlive/2024/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
-Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
-)) (/usr/local/texlive/2024/texmf-dist/tex/latex/kvoptions/kvoptions.sty
-Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
- (/usr/local/texlive/2024/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
-Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
-) (/usr/local/texlive/2024/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
-Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
-)) (/usr/local/texlive/2024/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
-Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
- (/usr/local/texlive/2024/texmf-dist/tex/generic/iftex/iftex.sty
-Package: iftex 2022/02/03 v1.0f TeX engine tests
-)
-Package pdftexcmds Info: \pdf@primitive is available.
-Package pdftexcmds Info: \pdf@ifprimitive is available.
-Package pdftexcmds Info: \pdfdraftmode found.
-)
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
-Package grfext Info: Graphics extension search list:
-(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPEG,.JBIG2,.JB2,.eps]
-(grfext)             \AppendGraphicsExtensions on input line 504.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-LaTeX Info: Redefining \. on input line 27.
-LaTeX Info: Redefining \% on input line 27.
-LaTeX Font Info:    Calculating math sizes for size <11> on input line 29.
- (./sections/introduccion/introduccion.tex [1{/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/base/8r.enc}
+LaTeX Info: Redefining \. on input line 36.
+LaTeX Info: Redefining \% on input line 36.
+\c@lstlisting=\count304
+LaTeX Font Info:    Calculating math sizes for size <11> on input line 38.
+ (./sections/introduccion/introduccion.tex
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [1{/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/base/8r.enc}
 
 
 ]) (./sections/estado-del-arte/estado-del-arte.tex
-LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 5.
- (/usr/local/texlive/2024/texmf-dist/tex/latex/psnfss/ot1pcr.fd
+
+LaTeX Warning: Citation `botzer2023' on page 2 undefined on input line 5.
+
+
+LaTeX Warning: Citation `alhassan2022' on page 2 undefined on input line 7.
+
+
+LaTeX Warning: Citation `osama2023' on page 2 undefined on input line 9.
+
+[2]
+
+LaTeX Warning: Citation `strathern2020' on page 3 undefined on input line 11.
+
+
+LaTeX Warning: Citation `preniqi2024' on page 3 undefined on input line 13.
+
+) (./sections/metodologia/metodologia.tex
+
+LaTeX Warning: Reference `fig:metodologia' on page 3 undefined on input line 3.
+
+<resources/metodologia.png, id=14, 530.98375pt x 771.88374pt>
+File: resources/metodologia.png Graphic file (type png)
+<use resources/metodologia.png>
+Package pdftex.def Info: resources/metodologia.png  used on input line 7.
+(pdftex.def)             Requested size: 103.19843pt x 150.01616pt.
+LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 15.
+(/usr/local/texlive/2024/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
-)) (./sections/experimentos/experimentos.tex [2]) (./sections/resultados/resultados.tex) (./sections/discusion-conclusion/discusion-conclusion.tex) (./main.bbl)
+)
+
+LaTeX Warning: Citation `liew2023reddit' on page 3 undefined on input line 19.
+
+
+LaTeX Warning: Reference `fig:tendencias' on page 3 undefined on input line 29.
+
+
+LaTeX Warning: Reference `sec:experimentos' on page 3 undefined on input line 29.
+
+[3 <./resources/metodologia.png>]
+<resources/tendencias.png, id=21, 1148.3703pt x 426.393pt>
+File: resources/tendencias.png Graphic file (type png)
+<use resources/tendencias.png>
+Package pdftex.def Info: resources/tendencias.png  used on input line 33.
+(pdftex.def)             Requested size: 232.19843pt x 86.21397pt.
+
+
+LaTeX Warning: Reference `fig:score-verdict' on page 4 undefined on input line 38.
+
+<resources/score-vs-verdict.png, id=22, 515.2851pt x 395.3169pt>
+File: resources/score-vs-verdict.png Graphic file (type png)
+<use resources/score-vs-verdict.png>
+Package pdftex.def Info: resources/score-vs-verdict.png  used on input line 42.
+(pdftex.def)             Requested size: 252.0pt x 193.32695pt.
+
+LaTeX Warning: Reference `fig:common-words' on page 4 undefined on input line 47.
+
+<resources/common-words.png, id=23, 859.2903pt x 426.393pt>
+File: resources/common-words.png Graphic file (type png)
+<use resources/common-words.png>
+Package pdftex.def Info: resources/common-words.png  used on input line 51.
+(pdftex.def)             Requested size: 252.0pt x 125.04312pt.
+<resources/word-clouds.png, id=24, 1438.173pt x 205.2468pt>
+File: resources/word-clouds.png Graphic file (type png)
+<use resources/word-clouds.png>
+Package pdftex.def Info: resources/word-clouds.png  used on input line 53.
+(pdftex.def)             Requested size: 252.0pt x 35.96255pt.
+
+LaTeX Warning: Reference `fig:clusters' on page 4 undefined on input line 60.
+
+
+Underfull \vbox (badness 2698) has occurred while \output is active []
+
+<resources/clusters.png, id=25, 589.7232pt x 395.3169pt>
+File: resources/clusters.png Graphic file (type png)
+<use resources/clusters.png>
+Package pdftex.def Info: resources/clusters.png  used on input line 65.
+(pdftex.def)             Requested size: 232.19843pt x 155.6508pt.
+<resources/clusters-2.png, id=26, 1438.173pt x 168.3891pt>
+File: resources/clusters-2.png Graphic file (type png)
+<use resources/clusters-2.png>
+Package pdftex.def Info: resources/clusters-2.png  used on input line 67.
+(pdftex.def)             Requested size: 232.19843pt x 27.18689pt.
+
+
+LaTeX Warning: Reference `fig:sentiment-analysis' on page 4 undefined on input line 75.
+
+[4 <./resources/tendencias.png> <./resources/score-vs-verdict.png> <./resources/common-words.png> <./resources/word-clouds.png> <./resources/clusters.png> <./resources/clusters-2.png>]
+<resources/sentiment-analysis.png, id=36, 1438.173pt x 269.5671pt>
+File: resources/sentiment-analysis.png Graphic file (type png)
+<use resources/sentiment-analysis.png>
+Package pdftex.def Info: resources/sentiment-analysis.png  used on input line 79.
+(pdftex.def)             Requested size: 252.0pt x 47.23253pt.
+) (./sections/experimentos/experimentos.tex [5 <./resources/sentiment-analysis.png>]
+Underfull \hbox (badness 1406) in paragraph at lines 59--61
+\OT1/ptm/m/n/10 mo-de-lo BERT ba-se est[]andar no sen-si-ble a may[]uscu-las;
+ []
+
+
+Underfull \vbox (badness 1092) has occurred while \output is active []
+
+ [6]
+Underfull \hbox (badness 10000) in paragraph at lines 86--87
+[]\OT1/ptm/m/n/10 La im-ple-men-ta-ci[]on uti-liz[]o es-pe-ci-fi-ca-cio-nes
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 86--87
+\OT1/ptm/m/n/10 t[]ecni-cas op-ti-mi-za-das. Se em-ple[]o el mo-de-lo
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 86--87
+\OT1/pcr/m/n/10 meta-llama/Meta-Llama-3.1-8B-Instruct \OT1/ptm/m/n/10 de
+ []
+
+
+Underfull \hbox (badness 2790) in paragraph at lines 86--87
+\OT1/ptm/m/n/10 Hug-ging Fa-ce. La pre-ci-si[]on uti-li-za-da fue float16 pa-ra
+ []
+
+)
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [7] (./sections/resultados/resultados.tex
+
+LaTeX Warning: Reference `tab:bert_f1_per_class' on page 8 undefined on input line 52.
+
+
+LaTeX Warning: Reference `tab:bert_results' on page 8 undefined on input line 72.
+
+
+LaTeX Warning: Reference `tab:bert_f1_per_class' on page 8 undefined on input line 72.
+
+
+LaTeX Warning: Reference `tab:bert_results' on page 8 undefined on input line 74.
+
+
+LaTeX Warning: Reference `tab:bert_f1_per_class' on page 8 undefined on input line 74.
+
+
+LaTeX Warning: Reference `tab:bert_f1_per_class' on page 8 undefined on input line 76.
+
+[8]
+
+./sections/resultados/resultados.tex:79: LaTeX Error: \begin{document} ended by \end{enumerate}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.79 \end{enumerate}
+                    
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+./sections/resultados/resultados.tex:79: Extra \endgroup.
+<recently read> \endgroup 
+                          
+l.79 \end{enumerate}
+                    
+Things are pretty mixed up, but I think the worst is over.
+
+
+LaTeX Warning: Reference `tab:bert_f1_per_class' on page 9 undefined on input line 83.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \vbox (badness 6220) has occurred while \output is active []
+
+ [9] [10]
+
+LaTeX Warning: Reference `fig:despliegue' on page 11 undefined on input line 288.
+
+<resources/despliegue.png, id=57, 1099.10625pt x 944.52875pt>
+File: resources/despliegue.png Graphic file (type png)
+<use resources/despliegue.png>
+Package pdftex.def Info: resources/despliegue.png  used on input line 292.
+(pdftex.def)             Requested size: 252.0pt x 216.55966pt.
+
+LaTeX Warning: Reference `tab:comparativo_dimensiones' on page 11 undefined on input line 300.
+
+) (./sections/conclusiones/conclusiones.tex [11 <./resources/despliegue.png>])
+No file main.bbl.
+[12
+
+]
+Overfull \hbox (828.0pt too wide) has occurred while \output is active
+[] | []
+ []
+
+[13
+
+
+
+]
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -302,9 +549,7 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[3
-
-] (./main.aux
+(./main.aux
 LaTeX Info: Redefining \. on input line 8.
 LaTeX Info: Redefining \% on input line 8.
 )
@@ -312,20 +557,27 @@ LaTeX Info: Redefining \% on input line 8.
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
+
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
- 5084 strings out of 474116
- 87714 string characters out of 5743681
- 1950187 words of memory out of 5000000
- 27368 multiletter control sequences out of 15000+600000
- 594993 words of font info for 105 fonts, out of 8000000 for 9000
+ 6572 strings out of 474116
+ 108878 string characters out of 5743681
+ 1957187 words of memory out of 5000000
+ 28841 multiletter control sequences out of 15000+600000
+ 603206 words of font info for 118 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 61i,14n,69p,1236b,365s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 66i,14n,67p,1718b,365s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (3 pages, 87206 bytes).
+Output written on main.pdf (13 pages, 1969859 bytes).
 PDF statistics:
- 45 PDF objects out of 1000 (max. 8388607)
- 27 compressed objects within 1 object stream
+ 97 PDF objects out of 1000 (max. 8388607)
+ 51 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 46 words of extra memory for PDF output out of 10000 (max. 10000000)
 
