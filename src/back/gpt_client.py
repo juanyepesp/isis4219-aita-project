@@ -31,7 +31,7 @@ def get_classification(text: str) -> dict:
                 },
                 {"role": "user", "content": text}
             ],
-            temperature=0.8,
+            temperature=0.0,
             max_tokens=100
         )
 
